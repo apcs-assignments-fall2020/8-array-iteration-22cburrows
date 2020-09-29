@@ -1,3 +1,4 @@
+import java.util.Arrays; 
 public class MyMain {
 
     // Reverses an array
@@ -11,22 +12,58 @@ public class MyMain {
 
     // Finds the second largest number in an array
     public static int secondLargest(int[] arr) {
-        // REPLACE WITH YOUR CODE HERE
-        return -1;
+        int large = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            large = Math.max(large, arr[i]);
+        }
+        int seclarge = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            if (!(arr[i] == large || arr[0] == large)){
+                seclarge = Math.max(seclarge, arr[i]);
+                System.out.println("sec " + seclarge);
+            }
+            else{
+                seclarge = seclarge + 0;
+                System.out.println("eww" + seclarge);
+            }
+        
+        }
+        return seclarge;
     }
 
     // Checks to see if an array contains a geometric series
     public static boolean isGeometric(int[] arr) {
-        int num = arr.length-1;
-        if (arr[num]/arr[num-1] == arr[1]/arr[0]){
-            return true;
+        int [] diff = new int[arr.length-1];
+        for (int i = 0; i < arr.length-1; i++){
+            diff[i] = arr[i + 1]/arr[i];
+        }
+        int num = diff[0];
+        int[] check = new int[arr.length-1];
+        for (int i = 0; i < arr.length-1; i++){
+            check[i] = num;
+        }
+        for (int i = 0; i < arr.length-1; i++){
+            if (Arrays.equals(diff, check) == true){
+                return true;
             }
-        else{
-            return false;
+            else{
+                return false;
+            }
         }
     }
 
     public static void main(String[] args) {
-        // YOUR CODE HERE
+        
+        int arr[] = {1, 5, -3, 4, 6};
+        int arr2[] = {-3, 7, 8, 5};
+
+        System.out.println(reverse(arr));
+        System.out.println(reverse(arr2));
+
+        System.out.println(secondLargest(arr));
+        System.out.println(secondLargest(arr2));
+
+        System.out.println(isGeometric(arr));
+        System.out.println(isGeometric(arr2));
     }
 }
