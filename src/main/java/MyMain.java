@@ -31,23 +31,25 @@ public class MyMain {
 
     // Checks to see if an array contains a geometric series
     public static boolean isGeometric(int[] arr) {
-        int [] diff = new int[arr.length-1];
+        double [] diff = new double[arr.length-1];
         for (int i = 0; i < arr.length-1; i++){
-            diff[i] = arr[i + 1]/arr[i];
+            double r = (double) arr[i + 1]/arr[i];
+            diff[i] = r;
         }
-        int num = diff[0];
-        int[] check = new int[arr.length-1];
+        double num = diff[0];
+        int counter = 0;
         for (int i = 0; i < arr.length-1; i++){
-            check[i] = num;
-        }
-        for (int i = 0; i < arr.length-1; i++){
-            if (Arrays.equals(diff, check) == true){
-                return true;
-            }
-            else{
-                return false;
+            if (num == diff[i]){
+                counter = counter + 1;
             }
         }
+        if (counter == arr.length-1){
+            return true;
+        }
+        else{
+            return false;
+        }
+            
     }
 
     public static void main(String[] args) {
@@ -55,8 +57,8 @@ public class MyMain {
         int arr[] = {1, 5, -3, 4, 6};
         int arr2[] = {-3, 7, 8, 5};
 
-        System.out.println(reverse(arr));
-        System.out.println(reverse(arr2));
+        System.out.println(Arrays.toString(reverse(arr)));
+        System.out.println(Arrays.toString(reverse(arr2)));
 
         System.out.println(secondLargest(arr));
         System.out.println(secondLargest(arr2));
