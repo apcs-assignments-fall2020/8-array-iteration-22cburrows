@@ -20,11 +20,9 @@ public class MyMain {
         for (int i = 1; i < arr.length; i++){
             if (!(arr[i] == large || arr[0] == large)){
                 seclarge = Math.max(seclarge, arr[i]);
-                System.out.println("sec " + seclarge);
             }
             else{
                 seclarge = seclarge + 0;
-                System.out.println("eww" + seclarge);
             }
         
         }
