@@ -1,3 +1,4 @@
+//did with Rasika
 import java.util.Arrays; 
 public class MyMain {
 
@@ -16,9 +17,9 @@ public class MyMain {
         for (int i = 1; i < arr.length; i++){
             large = Math.max(large, arr[i]);
         }
-        int seclarge = arr[0];
-        for (int i = 1; i < arr.length; i++){
-            if (!(arr[i] == large || arr[0] == large)){
+        int seclarge = -1000000000;
+        for (int i = 0; i < arr.length; i++){
+            if (!(arr[i] == large)){
                 seclarge = Math.max(seclarge, arr[i]);
             }
             else{
@@ -54,7 +55,7 @@ public class MyMain {
 
     public static void main(String[] args) {
         
-        int arr[] = {1, 5, -3, 4, 6};
+        int arr[] = {9, 5, -3, 4, 6};
         int arr2[] = {-3, 7, 8, 5};
 
         System.out.println(Arrays.toString(reverse(arr)));
